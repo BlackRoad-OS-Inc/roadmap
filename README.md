@@ -1,31 +1,64 @@
-# RoadMap — BlackRoad Road Fleet
+# RoadMap
 
-> **Sovereign monitoring and observability.** Fork of [Grafana](https://github.com/grafana/grafana).
+Fleet monitoring dashboards. See every node, every service, every metric from one screen.
 
----
+Built on Grafana, customized for mixed fleets of Raspberry Pis and cloud servers.
 
-**RoadMap** is BlackRoad's sovereign fork of Grafana — dashboards, alerts, and fleet monitoring. See every node, every service, every metric.
+## What It Monitors
 
-## What's Different
+| Metric | Description |
+|--------|-------------|
+| **CPU temperature** | Per-node thermal readings with alert thresholds |
+| **RAM usage** | Memory and swap consumption |
+| **Disk I/O** | Storage capacity, read/write rates |
+| **Network** | Bandwidth, latency, packet loss between nodes |
+| **Agent status** | Which AI agents are running and where |
+| **Service health** | Up/down for every service on every node |
+| **AI metrics** | Inference latency, model load times, accelerator utilization |
 
-- **Fleet dashboards** — pre-built boards for all 7 nodes
-- **BlackRoad theme** — hot pink (#FF1D6C) branded UI
-- **Pi metrics** — CPU, RAM, disk, temperature, voltage, network
-- **Service health** — Ollama, NATS, MinIO, Qdrant, Redis, PostgreSQL
-- **AI metrics** — inference latency, model load times, TOPS utilization
+## Fleet
 
-## Deployment
+Tracks 7 nodes:
+- 5 Raspberry Pi devices (ARM, 2-8GB RAM)
+- 2 cloud servers (x86)
+
+Each node runs a lightweight collector. Dashboards update in real time.
+
+## Dashboards
+
+- **Fleet Overview** — all nodes at a glance, color-coded health
+- **Node Detail** — deep dive into one device
+- **Agent Status** — AI agent activity and health
+- **Network Map** — connectivity between nodes
+- **Alerts** — active warnings and history
+
+## What Changed From Upstream Grafana
+
+- Pre-built dashboards tuned for Pi hardware (2GB RAM thresholds, thermal limits)
+- BlackRoad theme (hot pink #FF1D6C)
+- Service discovery for Ollama, NATS, MinIO, Qdrant, Redis, PostgreSQL
+- Alert defaults for ARM devices running at the edge
+
+## Setup
 
 ```bash
-# On Alice — port 3000
-# Access: http://alice:3000 or https://dash.blackroad.io
+./install.sh
+docker-compose up -d
+# Access at http://localhost:3000
 ```
 
-## Upstream
+## Stack
 
-Forked from [grafana/grafana](https://github.com/grafana/grafana) (AGPL v3 upstream).
-All BlackRoad modifications are proprietary.
+- **Base**: Grafana (forked)
+- **Data**: Prometheus + node_exporter
+- **Dashboards**: Pre-configured fleet panels
+- **Alerts**: Threshold-based with escalation
+
+## License
+
+Proprietary. Copyright (c) 2024-2026 BlackRoad OS, Inc. All rights reserved.
+Upstream Grafana is AGPL v3. All BlackRoad modifications are proprietary.
 
 ---
 
-**BlackRoad OS, Inc.** — Pave Tomorrow.
+*Remember the Road. Pave Tomorrow.*
