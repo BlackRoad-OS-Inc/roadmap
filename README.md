@@ -1,5 +1,13 @@
 # roadmap
 
+> RoadMap — Sovereign monitoring and observability. BlackRoad fork of Grafana. Fleet dashboards and alerts.
+
+Part of the [BlackRoad OS](https://blackroad.io) ecosystem — [BlackRoad-OS-Inc](https://github.com/BlackRoad-OS-Inc)
+
+---
+
+# roadmap
+
 RoadMap — Sovereign monitoring and observability. BlackRoad fork of Grafana. Fleet dashboards and alerts.
 
 **BlackRoad-OS-Inc** — Corporate root — all IP and governance
